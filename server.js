@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = require("./app.js");
 app.use(cors({
-    origin:[process.env.FRONTEND_URI],
+    origin:[process.env.FRONTEND_URI,"http://localhost:3000"],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true,
 }));
