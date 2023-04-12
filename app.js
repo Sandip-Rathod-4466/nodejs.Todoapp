@@ -11,8 +11,6 @@ config({path:"./database/config.env"});
 
 // middlwares
 app.use(cors({
-    origin:[process.env.FRONTEND_URI],
-    methods:["GET","POST","PUT","DELETE"],
     credentials:true,
 }));
 app.use(express.json());
