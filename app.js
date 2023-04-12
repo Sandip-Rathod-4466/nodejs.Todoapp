@@ -11,6 +11,8 @@ config({path:"./database/config.env"});
 
 // middlwares
 app.use(cors({
+    origin:["https://todoapp-8a4m.onrender.com/"],
+    methods:["GET","POST","PUT","DELETE"],
     credentials:true,
 }));
 app.use(express.json());
