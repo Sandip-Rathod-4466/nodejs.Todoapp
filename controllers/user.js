@@ -43,10 +43,14 @@ const createNewUser = async (req, res) => {
       // creatin a token
       const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY);
 
-      res.cookie("token", token).json({
-        status: true,
-        message: "Register successfully",
-      });
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+        })
+        .json({
+          status: true,
+          message: "Register successfully",
+        });
     }
   } catch (error) {
     res.json({
@@ -82,10 +86,14 @@ const loginUser = async (req, res) => {
 
         const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY);
 
-        res.cookie("token", token).json({
-          status: true,
-          message: `welcome back, ${user.name}`,
-        });
+        res
+          .cookie("token", token, {
+            httpOnly: true,
+          })
+          .json({
+            status: true,
+            message: `welcome back, ${user.name}`,
+          });
       }
     }
   } catch (error) {
@@ -111,7 +119,6 @@ const logoutUser = (req, res) => {
     message: "user logout",
   });
 };
-
 
 // ! Get single user
 const getSingleUser = async (req, res) => {
