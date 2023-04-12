@@ -18,6 +18,10 @@ app.use(cookieParser());
 app.use("/api/v1/user",userRoutes);
 app.use("/api/v1/task",taskRoutes);
 
+app.get("/",(req,res)=>{
+    res.send("Working ");
+})
+
 
 
 module.exports = app;
